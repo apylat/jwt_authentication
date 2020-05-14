@@ -28,3 +28,6 @@
 
 # Ignore ENV variables files
 .env
+
+# Ignore ctags file
+tags
