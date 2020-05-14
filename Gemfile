@@ -23,7 +23,7 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'#
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 
 # A Ruby gem to load environment variables from `.env`.
 gem 'dotenv', '~> 2.7', '>= 2.7.5'
@@ -40,6 +40,9 @@ group :development, :test do
   gem 'awesome_print', '~> 1.8'
   # rspec-rails is a testing framework for Rails 5+.
   gem 'rspec-rails', '~> 4.0'
+  # factory_bot provides a framework and DSL for defining and using factories - less error-prone,
+  # more explicit, and all-around easier to work with than fixtures.
+  gem 'factory_bot_rails', '~> 5.2'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
