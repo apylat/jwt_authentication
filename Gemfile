@@ -38,6 +38,8 @@ group :development, :test do
   gem 'rubocop', '~> 0.83.0', require: false
   # Great Ruby dubugging companion: pretty print Ruby objects to visualize their structure. Supports custom object formatting via plugins
   gem 'awesome_print', '~> 1.8'
+  # rspec-rails is a testing framework for Rails 5+.
+  gem 'rspec-rails', '~> 4.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
