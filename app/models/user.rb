@@ -5,7 +5,9 @@ class User < ApplicationRecord
          :registerable,
          :recoverable,
          :validatable,
-         :trackable
+         :trackable,
+         :jwt_authenticatable,
+         jwt_revocation_strategy: JwtBlacklist
 end
 
 # == Schema Information
