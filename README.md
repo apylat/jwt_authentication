@@ -1,24 +1,22 @@
-# README
+# Rails 6 API APP, Docker, Devise JWT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Technologies used
 
-Things you may want to cover:
+- Ruby 2.7.1
+- Rails 6.0.3
 
-* Ruby version
+### Initial Project Setup
 
-* System dependencies
+  1. Install [Docker Desktop](https://www.docker.com/p2.roducts/docker-desktop)
 
-* Configuration
+  2. Install [docker-compose](https://docs.docker.com/compose/install/)
 
-* Database creation
+  3. Copy .env.example to .env and change default variables values
 
-* Database initialization
+  4. Bootstrap a docker container, run `docker-compose up`
 
-* How to run the test suite
+  5. Create `secrets.yml.enc`, run `docker-compose exec api_app rails credentials:edit`
 
-* Services (job queues, cache servers, search engines, etc.)
+  6. Create and migrate database, run `docker-compose exec api_app rails db:setup`
 
-* Deployment instructions
-
-* ...
+  7. Restart docker container
