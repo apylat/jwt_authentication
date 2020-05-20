@@ -25,7 +25,8 @@ RUN apk add --update --no-cache \
       postgresql-dev \
       python \
       tzdata \
-      imagemagick
+      imagemagick \
+      vim
 
 RUN gem install bundler -v 2.1.4
 
