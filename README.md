@@ -1,4 +1,4 @@
-# Rails 6 API APP, Docker, Devise JWT
+# Rails 6 API app, Docker, Devise JWT
 
 ### Technologies used
 
