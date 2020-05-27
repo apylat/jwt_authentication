@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Devise
   class CustomFailureApp < Devise::FailureApp
     def http_auth_body

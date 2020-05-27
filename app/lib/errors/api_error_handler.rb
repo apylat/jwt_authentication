@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Errors
   module ApiErrorHandler
     def self.included(klass)
@@ -7,7 +9,7 @@ module Errors
         end
 
         rescue_from ActiveRecord::ActiveRecordError do |e|
-          message = "#{e.record.class.to_s}::#{e.message}"
+          message = "#{e.record.class}::#{e.message}"
 
           render unprocessable_entity_error(e.record, message)
         end
@@ -26,8 +28,8 @@ module Errors
       json_error(message, :unprocessable_entity, resource.errors.messages)
     end
 
-    def api_error(e, status)
-      json_error(e.message, status)
+    def api_error(error, status)
+      json_error(error.message, status)
     end
 
     def json_error(message, status, errors = [])

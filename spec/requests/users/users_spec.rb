@@ -1,4 +1,6 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe 'Users Registration', type: :request do
   let(:user) { create(:user) }
@@ -15,12 +17,12 @@ RSpec.describe 'Users Registration', type: :request do
   describe 'User sign up' do
     context 'valid params' do
       it 'creates user and returns Authorization header' do
-        expect {
+        expect do
           post '/api/v1/users', params: user_params.to_json, headers: json_headers
-        }.to change { User.count }.by(1)
+        end.to change { User.count }.by(1)
 
         expect(response).to have_http_status(:created)
-        expect(response.headers).to have_key("Authorization")
+        expect(response.headers).to have_key('Authorization')
       end
     end
 
@@ -28,9 +30,9 @@ RSpec.describe 'Users Registration', type: :request do
       it 'returns unprocessable_entity status code' do
         user_params[:user].merge!(email: user.email)
 
-        expect {
+        expect do
           post '/api/v1/users', params: user_params.to_json, headers: json_headers
-        }.to change { User.count }.by(0)
+        end.to change { User.count }.by(0)
 
         expect(response).to have_http_status(:unprocessable_entity)
       end

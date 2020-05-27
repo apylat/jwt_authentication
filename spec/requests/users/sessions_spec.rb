@@ -1,4 +1,6 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe 'Session', type: :request do
   let(:user_password) { 'valid_password' }
@@ -28,7 +30,7 @@ RSpec.describe 'Session', type: :request do
         post '/api/v1/users/sign_in', params: valid_params, headers: json_headers
 
         expect(response).to have_http_status(:created)
-        expect(response.headers).to have_key("Authorization")
+        expect(response.headers).to have_key('Authorization')
       end
     end
 
@@ -44,9 +46,9 @@ RSpec.describe 'Session', type: :request do
   describe 'Sign Out' do
     context 'with Authorization header' do
       it 'adds JWT to the JwtBlacklist table' do
-        expect {
+        expect do
           delete '/api/v1/users/sign_out', headers: auth_headers(user)
-        }.to change { JwtBlacklist.count }.by(1)
+        end.to change { JwtBlacklist.count }.by(1)
 
         expect(response).to have_http_status(:no_content)
       end
@@ -54,9 +56,9 @@ RSpec.describe 'Session', type: :request do
 
     context 'without Authorization header' do
       it 'returns no content http status' do
-        expect {
+        expect do
           delete '/api/v1/users/sign_out', headers: json_headers
-        }.to change { JwtBlacklist.count }.by(0)
+        end.to change { JwtBlacklist.count }.by(0)
 
         expect(response).to have_http_status(:no_content)
       end
