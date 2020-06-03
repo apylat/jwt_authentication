@@ -53,6 +53,9 @@ group :development, :test do
   # rspec-rails is a testing framework for Rails 5+.
   gem 'rspec-rails', '~> 4.0'
 
+  # RSpec results that your continuous integration service can read.
+  gem 'rspec_junit_formatter', '~> 0.4.1'
+
   # factory_bot provides a framework and DSL for defining and using factories - less error-prone,
   # more explicit, and all-around easier to work with than fixtures.
   gem 'factory_bot_rails', '~> 5.2'
